@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-base-1: #F6F9F5;
+    --color-base-2: #091405;
+    --color-base-3: #BBC0B9;
+    --color-base-4: #80877D;
+    --color-base-5: #444D41;
+    --color-accent-1: #035772;
+    --color-accent-2: #E0FD2C;
+    --color-accent-3: #A5C8D4;
+    --color-accent-4: ##A12767;
+}
+
+html {
+    font-family: "Space Grotesk", san serif
+}

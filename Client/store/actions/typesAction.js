@@ -1,0 +1,10 @@
+const typesAction = {
+    LOGIN: 'LOGIN',
+    LOGOUT: 'LOGOUT',
+    CHANGE_PAGE: 'CHANGE_PAGE',
+    UPDATE_USER_INFO: 'UPDATE_USER_INFO',
+    CHANGE_LOCAL_AVATAR: 'CHANGE_LOCAL_AVATAR',
+    EMAIL_RESET_PASS: 'EMAIL_RESET_PASS',
+}
+
+export default typesAction;

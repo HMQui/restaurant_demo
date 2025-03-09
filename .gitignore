@@ -1,0 +1,15 @@
+# Ignore node_modules
+Client/node_modules
+Server/node_modules
+
+# Ignore environment files
+Client/.env
+Server/.env
+
+# Ignore lock files (optional)
+Client/package-lock.json
+Server/package-lock.json
+
+# Ignore editor config
+Client/.vscode
+Client/.prettierrc

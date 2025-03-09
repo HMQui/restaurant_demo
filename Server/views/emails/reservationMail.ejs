@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #444;
+        }
+        .details {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <% if (accept) { %>
+            <h1>Reservation Confirmed</h1>
+            <p>Dear <%= orderData.name %>,</p>
+            <p>Your reservation has been accepted! Here are your details:</p>
+            <div class="details">
+                <p><strong>Date:</strong> <%= orderData.date %></p>
+                <p><strong>Time:</strong> <%= orderData.time %></p>
+                <p><strong>Party Size:</strong> <%= orderData.partySize %></p>
+                <p><strong>Notices:</strong> <%= orderData.notices ? orderData.notices : 'None' %></p>
+            </div>
+            <p>We look forward to serving you!</p>
+        <% } else { %>
+            <h1>Reservation Rejected</h1>
+            <p>Dear Customer,</p>
+            <p>Unfortunately, we are unable to accommodate your reservation request at this time. We apologize for the inconvenience.</p>
+            <p>Please try booking for another date or time.</p>
+        <% } %>
+        <p class="footer">Best regards, <br> The Restaurant Team</p>
+    </div>
+</body>
+</html>

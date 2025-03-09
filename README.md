@@ -1,0 +1,30 @@
+A Model RestFull Web App is about restaurant management.
+
+Add the ENV in SERVER (required) to using this app.
+PORT=
+JWT_SECRET=
+
+CLIENT_URL=
+SERVER_URL=
+
+MONGODB_CONNECT=
+
+ROOT_PASSWORD=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+FACEBOOK_APP_ID=
+FACEBOOK_APP_SECRET=
+
+CLOUDINARY_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+HOST_MAIL=
+SERVICE_MAIL=
+PORT_MAIL=
+USER_EMAIL=
+PASS_EMAIL=
+
+Add SERVER_URL in Client/config/globalVariable.js to use CLient
