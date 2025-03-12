@@ -14,7 +14,8 @@ import {
     Reservation,
     AdminReservation,
     OrderOnline,
-    ManageProducts
+    ManageProducts,
+    Carts,
 } from './components';
 import GuestRoute from './components/ProtectedRoute/GuestRoute';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
@@ -26,6 +27,8 @@ import { isLoggedIn } from '../services/apis/authApis';
 import authAction from '../store/actions/authAction';
 import typesAction from '../store/actions/typesAction';
 import infoUserAction from '../store/actions/infoUserAction';
+import updateQuanityCartsAction from '../store/actions/updateQuanityCartsAction';
+import { getCarts } from '../services/apis/cartsApi';
 
 function App() {
     const dispatch = useDispatch();
@@ -52,6 +55,20 @@ function App() {
                 setLoading(false); // Khi xác thực xong, bỏ trạng thái loading
             }
         };
+
+        const fetch = async () => {
+            try {
+                const res = await getCarts();
+                const carts = res.carts;
+                const quantity = carts.reduce((total, cart) => total + cart.quantity, 0);
+
+                dispatch(updateQuanityCartsAction(typesAction.UPDATE_QUANITY_CARTS, quantity));
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetch();
 
         fetchAuthStatus();
     }, [dispatch]);
@@ -88,6 +105,7 @@ function App() {
                     <Route element={<UserRoute />}>
                         <Route path="/reservation" element={<Reservation />} />
                         <Route path="/order-online" element={<OrderOnline />} />
+                        <Route path="/carts" element={<Carts />} />
                     </Route>
 
                     {/* Admin Route */}

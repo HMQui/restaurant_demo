@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import { searchProducts } from '../../../services/apis/productsApi';
+import { searchProducts } from '../../../../services/apis/productsApi';
+import CardProduct from './CardProduct';
 
 const CATEGORIES = [
     { name: 'Dark Coffee', category: 'DarkCoffee' },
@@ -74,28 +75,7 @@ function OrderOnline() {
                 </div>
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {products[choosedCategory]?.map((product, index) => (
-                        <div key={index} className="flex flex-col justify-start items-start mt-10 group shadow-2xs">
-                            <LazyLoadImage
-                                src={product.image}
-                                alt={product.title}
-                                effect="blur"
-                                className="w-[306px] h-[175px] object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-300"
-                            />
-                            <div className="w-full flex flex-col justify-start items-start mt-5">
-                                <h1 className="text-2xl font-bold">{product.name}</h1>
-                                <p>{product.title}</p>
-                                <p className="text-sm line-clamp-2">{product.subTitle}</p>
-                                <p className="text-xl text-accent-1 mt-5">${product.price}</p>
-                                <div className='flex flex-row gap-2'>
-                                    <Button sx={{ backgroundColor: '#035772', color: 'white', marginTop: '10px' }}>
-                                        Add to Cart
-                                    </Button>
-                                    <Button sx={{ backgroundColor: '#035772', color: 'white', marginTop: '10px' }}>
-                                        Order Now
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
+                        <CardProduct product={product} key={index}/>
                     ))}
                 </div>
             </div>

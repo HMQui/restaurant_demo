@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const http = require('http');
-const cron = require('node-cron');
-const dayjs = require('dayjs');
+// const cron = require('node-cron');
+// const dayjs = require('dayjs');
 require('dotenv').config();
 
 const initSocket = require('./configs/initSocket');
@@ -15,6 +15,7 @@ const authenRouter = require('./routes/authen.route');
 const usersRouter = require('./routes/users.route');
 const reservationRouter = require('./routes/reservation.route');
 const productsRouter = require('./routes/products.route');
+const cartsRouter = require('./routes/carts.route')
 // const ReservationModel = require('./models/Reservation');
 
 const server = http.createServer(app);
@@ -51,6 +52,8 @@ app.use('/api/reservation', verifyToken, reservationRouter);
 
 // Products router
 app.use('/api/products', verifyToken, productsRouter);
+
+app.use('/api/carts', verifyToken, cartsRouter)
 
 // Automatic Cleanup Job: Remove expired reservations every midnight
 // const cleanupExpiredReservations = async () => {

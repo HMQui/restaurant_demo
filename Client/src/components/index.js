@@ -10,4 +10,5 @@ export { default as AdminReservation } from './Admin/Reservation/AdminReservatio
 export { default as ManageProducts } from './Admin/ManageProducts/ManageProducts'
 
 export { default as Reservation } from './Client/Reservation'
-export { default as OrderOnline } from './Client/OrderOnline'
+export { default as OrderOnline } from './Client/OrderOnline/OrderOnline'
+export { default as Carts } from './Client/Carts/Carts'

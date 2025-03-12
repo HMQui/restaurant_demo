@@ -37,9 +37,19 @@ const updateProduct = async (id, changeData) => {
     }
 };
 
+const getManyProducts = async (productsId) => {
+    try {
+        const res = await axios.post(`${SERVER_URL}/products/get-many`, { productsId }, { withCredentials: true });
+        return res.data;
+    } catch (error) {
+        console.error('Error get many product:', error.response?.data || error.message);
+        throw error;
+    }
+}
 
 export {
     searchProducts,
     createNewProduct,
     updateProduct,
+    getManyProducts,
 }

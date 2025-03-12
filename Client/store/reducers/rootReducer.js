@@ -5,6 +5,7 @@ import autoMergeLevel2 from "redux-persist/es/stateReconciler/autoMergeLevel2";
 
 import authReducer from "./authReducer";
 import infoUserReducer from "./infoUserReducer";
+import updateQuanityCartsReducer from "./updateQuanityCartsReducer";
 
 // Persist config for user info reducer
 const commonConfig = {
@@ -14,12 +15,13 @@ const commonConfig = {
 
 const authConfig = {
     ...commonConfig,
-    key: 'auth'
+    key: 'auth',
 }
 
 const rootReducer = combineReducers({
     auth: persistReducer(authConfig, authReducer),
     infoUser: infoUserReducer, // Persisted reducer
+    quanity: updateQuanityCartsReducer,
 });
 
 export default rootReducer;

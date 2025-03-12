@@ -62,8 +62,26 @@ const updateProduct = async (req, res) => {
     }
 }
 
+const getManyProducts = async (req, res) => {
+    const id = req.body.productsId
+
+    try {
+        if (!Array.isArray(id) || id.length === 0) {
+            return res.status(400).json({ error: 1, message: "Invalid productId format" });
+        }
+
+        const products = await ProductsModel.find({ id: { $in: id } });
+
+        return res.json({ error: 0, products });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ error: 1, message: "Server is broken" })
+    }
+}
+
 module.exports = {
     searchProducts,
     createProduct,
     updateProduct,
+    getManyProducts,
 }
